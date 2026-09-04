@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/AquaFusion",
+      "permanent": true
+    }
+  ]
+}
