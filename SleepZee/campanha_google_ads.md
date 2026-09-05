@@ -41,6 +41,18 @@ https://www.optimalife.online/SleepZee?utm_id={campaignid}&utm_source=google&utm
 29. SleepZee Clearout Sale *(Queima de Estoque SleepZee)*
 30. Medically Proven Solution *(Solução Médica Comprovada)*
 
+### ⏳ Títulos de Escassez e Urgência (Ideais para Posição 2 - Sem o nome do produto)
+1. Up To 50% Off Today *(Até 50% Off Hoje)*
+2. Ends Soon: 50% Off *(Termina em Breve: 50% Off)*
+3. Last Units Available *(Últimas Unidades Disponíveis)*
+4. Free Shipping Today *(Frete Grátis Hoje)*
+5. Claim Your Discount Now *(Resgate Seu Desconto Agora)*
+6. 100% Risk Free Trial *(Teste 100% Sem Riscos)*
+7. Flash Sale Ending Soon *(Promoção Acabando em Breve)*
+8. Huge Savings Today *(Grande Economia Hoje)*
+9. Limited Time Promo *(Promoção por Tempo Limitado)*
+10. Don't Miss This Deal *(Não Perca Essa Oferta)*
+
 ---
 
 ## 📄 6 Descrições / Descriptions (Máximo 90 caracteres)
