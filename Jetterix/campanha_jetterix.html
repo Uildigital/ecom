@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campanha Google Ads - Jetterix</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f8fafc; color: #1e293b; padding: 20px; line-height: 1.5; }
+        .container { max-width: 900px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); }
+        h1 { font-size: 24px; font-weight: 700; color: #0f172a; margin-bottom: 20px; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; }
+        h2 { font-size: 18px; font-weight: 600; color: #334155; margin-top: 30px; margin-bottom: 15px; background: #f1f5f9; padding: 10px; border-radius: 6px; }
+        .item { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #f1f5f9; }
+        .item:last-child { border-bottom: none; }
+        .text-content { flex: 1; padding-right: 20px; }
+        .original-text { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 14px; font-weight: 600; color: #0f172a; }
+        .translation { font-size: 12px; color: #64748b; margin-top: 4px; }
+        .controls { display: flex; align-items: center; gap: 12px; }
+        .counter { font-size: 12px; font-weight: 600; padding: 4px 8px; border-radius: 4px; }
+        .counter.valid { background: #dcfce7; color: #166534; }
+        .counter.invalid { background: #fee2e2; color: #991b1b; }
+        .copy-btn { background: #ffffff; border: 1px solid #cbd5e1; color: #475569; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 500; cursor: pointer; transition: all 0.2s; white-space: nowrap; }
+        .copy-btn:hover { background: #f8fafc; border-color: #94a3b8; color: #0f172a; }
+        .copy-btn.copied { background: #10b981; border-color: #10b981; color: white; }
+        details { background: #f8fafc; padding: 10px 15px; border-radius: 8px; margin-bottom: 10px; border: 1px solid #e2e8f0; }
+        summary { font-weight: 600; cursor: pointer; color: #334155; }
+        .sitelink-group { margin-top: 10px; padding-left: 10px; border-left: 2px solid #cbd5e1; }
+        .url-box { margin-bottom: 15px; padding: 12px; background: #e0f2fe; border-radius: 6px; font-size: 11px; display: flex; justify-content: space-between; align-items: center; gap: 15px; }
+        .url-text { font-family: monospace; color: #0369a1; word-break: break-all; }
+        .alert { background: #fcf3cf; border-left: 4px solid #f1c40f; padding: 15px; margin-bottom: 20px; font-size: 14px; border-radius: 6px;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Recursos Fundo de Funil: Jetterix (Ecom)</h1>
+        
+        <div class="alert">
+            <strong>Estratégia:</strong> Produto físico (Ecom). Foco em praticidade, economia de tempo/dinheiro, pressão potente e facilidade de encaixe em mangueiras padrão.
+        </div>
+
+        <p style="font-size: 14px; color: #64748b; margin-bottom: 30px;">
+            Benefícios: Limpeza Poderosa, Encaixe Universal, Remoção Rápida de Sujeira, 30 Dias de Garantia
+        </p>
+
+        <!-- Bloco 1 -->
+        <h2>Títulos 1: Produto + [benefício] (Máx: 30)</h2>
+        <div id="titulos-1"></div>
+
+        <!-- Bloco 2 -->
+        <h2>Títulos 2: Produto posição aleatória (Máx: 30)</h2>
+        <div id="titulos-2"></div>
+
+        <!-- Bloco 3 -->
+        <h2>Títulos 3: Produto + benefício sem colchetes (Máx: 30)</h2>
+        <div id="titulos-3"></div>
+
+        <!-- Bloco 4 -->
+        <h2>Títulos 4: Sem nome do produto (Máx: 30)</h2>
+        <div id="titulos-4"></div>
+
+        <!-- Descrições -->
+        <h2>Descrições (Máx: 90)</h2>
+        <div id="descricoes"></div>
+
+        <!-- Sitelinks -->
+        <h2>Sitelinks (Frases: Máx 35, Título do grupo: Máx 25)</h2>
+        <div id="sitelinks"></div>
+
+        <!-- Frases em Destaque -->
+        <h2>Frases em Destaque / Callouts (Máx: 25)</h2>
+        <div id="callouts"></div>
+    </div>
+
+    <script>
+        const baseUrl = "https://www.optimalife.online/Jetterix?utm_id={campaignid}&utm_source=google&utm_medium={adgroupid}&utm_campaign=nomeCampanha&utm_term={keyword}&utm_content={creative}&network={network}&device={device}&ftgid=ftgid_{gclid}_ftgid";
+
+        const data = {
+            t1: [
+                ["Jetterix [Official Site]", "Jetterix [Site Oficial]"],
+                ["Jetterix [Powerful Cleaning]", "Jetterix [Limpeza Poderosa]"],
+                ["Jetterix [30-Day Guarantee]", "Jetterix [Garantia de 30 Dias]"],
+                ["Jetterix [Order Online Now]", "Jetterix [Peça Online Agora]"],
+                ["Jetterix [Fits All Hoses]", "Jetterix [Serve em Todas Mangueiras]"],
+                ["Jetterix [Easy Attachment]", "Jetterix [Encaixe Fácil]"],
+                ["Jetterix [Special Discount]", "Jetterix [Desconto Especial]"],
+                ["Jetterix [Save Time & Money]", "Jetterix [Poupe Tempo e Dinheiro]"],
+                ["Jetterix [Remove Grime Fast]", "Jetterix [Remova Sujeira Rápido]"],
+                ["Jetterix [Limited Offer]", "Jetterix [Oferta Limitada]"]
+            ],
+            t2: [
+                ["Try Jetterix Risk-Free", "Experimente Jetterix Sem Risco"],
+                ["Get Your Jetterix Today", "Adquira Seu Jetterix Hoje"],
+                ["Order Jetterix Official", "Peça Jetterix Oficial"],
+                ["Claim Your Jetterix Deal", "Resgate Sua Oferta Jetterix"],
+                ["Save On Jetterix Now", "Economize no Jetterix Agora"],
+                ["Buy Jetterix Securely", "Compre Jetterix Com Segurança"],
+                ["Official Jetterix Site", "Site Oficial do Jetterix"],
+                ["Jetterix: Powerful Nozzle", "Jetterix: Bocal Poderoso"],
+                ["100% Authentic Jetterix", "Jetterix 100% Autêntico"],
+                ["Discount On Jetterix", "Desconto no Jetterix"]
+            ],
+            t3: [
+                ["Jetterix Official Website", "Jetterix Site Oficial"],
+                ["Jetterix Huge Savings", "Jetterix Grandes Economias"],
+                ["Jetterix 30-Day Guarantee", "Jetterix Garantia de 30 Dias"],
+                ["Jetterix Powerful Cleaning", "Jetterix Limpeza Poderosa"],
+                ["Jetterix Easy Attachment", "Jetterix Encaixe Fácil"],
+                ["Jetterix Order Securely", "Jetterix Peça com Segurança"],
+                ["Jetterix Special Discount", "Jetterix Desconto Especial"],
+                ["Jetterix Fast Dirt Removal", "Jetterix Remoção Rápida de Sujeira"],
+                ["Jetterix Works On All Hoses", "Jetterix Funciona em Qualquer Mangueira"],
+                ["Jetterix Save Time & Effort", "Jetterix Poupe Tempo e Esforço"]
+            ],
+            t4: [
+                ["Official Website", "Site Oficial"],
+                ["Special Online Discount", "Desconto Especial Online"],
+                ["30-Day Money Back", "Devolução em 30 Dias"],
+                ["Order Securely Online", "Peça Com Segurança Online"],
+                ["Powerful Cleaning Nozzle", "Bocal de Limpeza Poderosa"],
+                ["Fits Any Standard Hose", "Encaixa em Mangueira Padrão"],
+                ["Fast & Easy To Use", "Rápido e Fácil de Usar"],
+                ["Limited Time Deal", "Oferta por Tempo Limitado"],
+                ["Authentic & Original", "Autêntico e Original"],
+                ["Secure Checkout", "Checkout Seguro"],
+                ["Remove Dirt Instantly", "Remova Sujeira Instantaneamente"],
+                ["Get Yours Today", "Adquira o Seu Hoje"],
+                ["Cost-Effective Solution", "Solução de Custo-Benefício"],
+                ["Satisfaction Guaranteed", "Satisfação Garantida"],
+                ["Best Value Package", "Pacote de Melhor Custo-Benefício"],
+                ["Buy Direct & Save", "Compre Direto e Economize"],
+                ["Exclusive Online Offer", "Oferta Online Exclusiva"],
+                ["Try It Risk-Free", "Experimente Sem Risco"],
+                ["Premium Quality", "Qualidade Premium"],
+                ["Works On All Surfaces", "Funciona em Todas as Superfícies"],
+                ["Instant Order Processing", "Processamento Imediato do Pedido"],
+                ["Special Online Price", "Preço Especial Online"],
+                ["Secure Payment Portal", "Portal de Pagamento Seguro"],
+                ["Direct From Manufacturer", "Direto do Fabricante"]
+            ],
+            desc: [
+                ["Jetterix Official Website. Turn your regular hose into a powerful cleaner. Order today!", "Site Oficial do Jetterix. Transforme sua mangueira num limpador potente. Peça hoje!"],
+                ["Order Jetterix risk-free. Fits all standard hoses. Remove dirt & grime instantly.", "Peça Jetterix sem risco. Serve em mangueiras padrão. Remova sujeira instantaneamente."],
+                ["Buy authentic Jetterix directly from us. 100% satisfaction & 30-day money back guarantee.", "Compre Jetterix autêntico conosco. 100% satisfação e garantia de 30 dias."],
+                ["Jetterix special offer: Save time and effort cleaning patios, driveways and cars.", "Oferta especial Jetterix: Poupe tempo e esforço limpando pátios, calçadas e carros."],
+                ["Get Jetterix today. The easy-to-use attachment for powerful water pressure. Shop now.", "Adquira o Jetterix hoje. O encaixe fácil para pressão de água potente. Compre agora."],
+                ["Jetterix: Don't miss out on our online deal. Cost-effective DIY cleaning solution.", "Jetterix: Não perca nossa oferta online. Solução de limpeza caseira econômica."]
+            ],
+            sitelinks: [
+                {
+                    title: "Official Website",
+                    items: [
+                        ["Official Website", "Site Oficial"],
+                        ["Secure your order today.", "Garanta seu pedido hoje."],
+                        ["Order direct from us.", "Peça diretamente de nós."]
+                    ]
+                },
+                {
+                    title: "30-Day Guarantee",
+                    items: [
+                        ["30-Day Guarantee", "Garantia de 30 Dias"],
+                        ["Risk-free purchase.", "Compra sem risco."],
+                        ["Money back guarantee.", "Garantia de devolução do dinheiro."]
+                    ]
+                },
+                {
+                    title: "Powerful Pressure",
+                    items: [
+                        ["Powerful Pressure", "Pressão Poderosa"],
+                        ["Blast away dirt & grime.", "Arranque sujeira e manchas."],
+                        ["Restore any outdoor surface.", "Restaure qualquer superfície."]
+                    ]
+                },
+                {
+                    title: "Universal Fit",
+                    items: [
+                        ["Universal Fit", "Encaixe Universal"],
+                        ["Fits all standard hoses.", "Serve em mangueiras padrão."],
+                        ["Easy to attach in seconds.", "Fácil de conectar em segundos."]
+                    ]
+                },
+                {
+                    title: "Works Everywhere",
+                    items: [
+                        ["Works Everywhere", "Funciona em Qualquer Lugar"],
+                        ["Perfect for patios & cars.", "Perfeito para pátios e carros."],
+                        ["Clean driveways & siding.", "Limpe calçadas e fachadas."]
+                    ]
+                },
+                {
+                    title: "Secure Checkout",
+                    items: [
+                        ["Secure Checkout", "Checkout Seguro"],
+                        ["100% safe and secure payment.", "Pagamento 100% seguro e protegido."],
+                        ["Protect your data with us.", "Proteja seus dados conosco."]
+                    ]
+                },
+                {
+                    title: "Special Discount",
+                    items: [
+                        ["Special Discount", "Desconto Especial"],
+                        ["Claim your discount online.", "Resgate seu desconto online."],
+                        ["Exclusive online promotion.", "Promoção online exclusiva."]
+                    ]
+                },
+                {
+                    title: "Authentic Product",
+                    items: [
+                        ["Authentic Product", "Produto Autêntico"],
+                        ["Direct from manufacturer.", "Direto do fabricante."],
+                        ["Premium quality guaranteed.", "Qualidade premium garantida."]
+                    ]
+                },
+                {
+                    title: "Buy Jetterix Now",
+                    items: [
+                        ["Buy Jetterix Now", "Compre Jetterix Agora"],
+                        ["Stock is limited, order fast.", "Estoque limitado, peça rápido."],
+                        ["Secure your supply today.", "Garanta seu suprimento hoje."]
+                    ]
+                },
+                {
+                    title: "Save Time & Effort",
+                    items: [
+                        ["Save Time & Effort", "Poupe Tempo e Esforço"],
+                        ["Cost-effective cleaning.", "Limpeza de custo-benefício."],
+                        ["Make outdoor chores easy.", "Torne as tarefas fáceis."]
+                    ]
+                }
+            ],
+            callouts: [
+                ["Official Website", "Site Oficial"],
+                ["30-Day Guarantee", "Garantia de 30 Dias"],
+                ["Universal Hose Fit", "Encaixe Universal"],
+                ["Powerful Water Pressure", "Pressão de Água Poderosa"],
+                ["Cost-Effective Solution", "Solução Econômica"],
+                ["100% Risk-Free", "100% Sem Risco"],
+                ["Authentic Product", "Produto Autêntico"],
+                ["Secure Checkout", "Checkout Seguro"],
+                ["Easy To Attach", "Fácil de Encaixar"],
+                ["Cleans Any Surface", "Limpa Qualquer Superfície"],
+                ["Satisfaction Guaranteed", "Satisfação Garantida"],
+                ["Water-Efficient", "Eficiente em Água"],
+                ["Fast Order Processing", "Processamento Rápido do Pedido"],
+                ["Best Value Package", "Pacote de Melhor Valor"],
+                ["Order Online Now", "Peça Online Agora"]
+            ]
+        };
+
+        function renderList(targetId, items, maxChars) {
+            const container = document.getElementById(targetId);
+            items.forEach(item => {
+                const en = item[0];
+                const pt = item[1];
+                const count = en.length;
+                const isValid = count <= maxChars;
+                
+                container.innerHTML += `
+                    <div class="item">
+                        <div class="text-content">
+                            <div class="original-text">${en}</div>
+                            <div class="translation">${pt}</div>
+                        </div>
+                        <div class="controls">
+                            <span class="counter ${isValid ? 'valid' : 'invalid'}">${count}/${maxChars}</span>
+                            <button class="copy-btn" onclick="copyText(this, \`${en.replace(/'/g, "\\'")}\`)">Copy</button>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function renderSitelinks() {
+            const container = document.getElementById('sitelinks');
+            data.sitelinks.forEach((group, index) => {
+                let html = `<details><summary>Grupo ${index + 1}: ${group.title}</summary><div class="sitelink-group">`;
+                
+                // Gerador de URL exclusiva (Adiciona âncora no final)
+                const groupAnchor = encodeURIComponent(group.title.replace(/ /g, '_').toLowerCase());
+                const finalUrl = baseUrl + "#" + groupAnchor;
+                
+                html += `
+                    <div class="url-box">
+                        <span class="url-text">${finalUrl}</span>
+                        <button class="copy-btn" onclick="copyText(this, \`${finalUrl}\`)">Copy URL</button>
+                    </div>
+                `;
+                
+                group.items.forEach((item, i) => {
+                    const en = item[0];
+                    const pt = item[1];
+                    const count = en.length;
+                    const maxChars = i === 0 ? 25 : 35; // Title max 25, descriptions max 35
+                    const isValid = count <= maxChars;
+                    
+                    html += `
+                        <div class="item">
+                            <div class="text-content">
+                                <div class="original-text">${en}</div>
+                                <div class="translation">${pt}</div>
+                            </div>
+                            <div class="controls">
+                                <span class="counter ${isValid ? 'valid' : 'invalid'}">${count}/${maxChars}</span>
+                                <button class="copy-btn" onclick="copyText(this, \`${en.replace(/'/g, "\\'")}\`)">Copy</button>
+                            </div>
+                        </div>
+                    `;
+                });
+                html += `</div></details>`;
+                container.innerHTML += html;
+            });
+        }
+
+        window.copyText = function(btn, text) {
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = btn.innerText;
+                btn.innerText = '✓ Copied';
+                btn.classList.add('copied');
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.classList.remove('copied');
+                }, 1500);
+            });
+        };
+
+        // Render all sections
+        renderList('titulos-1', data.t1, 30);
+        renderList('titulos-2', data.t2, 30);
+        renderList('titulos-3', data.t3, 30);
+        renderList('titulos-4', data.t4, 30);
+        renderList('descricoes', data.desc, 90);
+        renderSitelinks();
+        renderList('callouts', data.callouts, 25);
+    </script>
+</body>
+</html>
