@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campanha Google Ads - EpiBella</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f8fafc; color: #1e293b; padding: 20px; line-height: 1.5; }
+        .container { max-width: 900px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); }
+        h1 { font-size: 24px; font-weight: 700; color: #0f172a; margin-bottom: 20px; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; }
+        h2 { font-size: 18px; font-weight: 600; color: #334155; margin-top: 30px; margin-bottom: 15px; background: #f1f5f9; padding: 10px; border-radius: 6px; }
+        .item { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #f1f5f9; }
+        .item:last-child { border-bottom: none; }
+        .text-content { flex: 1; padding-right: 20px; }
+        .original-text { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 14px; font-weight: 600; color: #0f172a; }
+        .translation { font-size: 12px; color: #64748b; margin-top: 4px; }
+        .controls { display: flex; align-items: center; gap: 12px; }
+        .counter { font-size: 12px; font-weight: 600; padding: 4px 8px; border-radius: 4px; }
+        .counter.valid { background: #dcfce7; color: #166534; }
+        .counter.invalid { background: #fee2e2; color: #991b1b; }
+        .copy-btn { background: #ffffff; border: 1px solid #cbd5e1; color: #475569; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 500; cursor: pointer; transition: all 0.2s; white-space: nowrap; }
+        .copy-btn:hover { background: #f8fafc; border-color: #94a3b8; color: #0f172a; }
+        .copy-btn.copied { background: #10b981; border-color: #10b981; color: white; }
+        details { background: #f8fafc; padding: 10px 15px; border-radius: 8px; margin-bottom: 10px; border: 1px solid #e2e8f0; }
+        summary { font-weight: 600; cursor: pointer; color: #334155; }
+        .sitelink-group { margin-top: 10px; padding-left: 10px; border-left: 2px solid #cbd5e1; }
+        .url-box { margin-bottom: 15px; padding: 12px; background: #e0f2fe; border-radius: 6px; font-size: 11px; display: flex; justify-content: space-between; align-items: center; gap: 15px; }
+        .url-text { font-family: monospace; color: #0369a1; word-break: break-all; }
+        .alert { background: #fcf3cf; border-left: 4px solid #f1c40f; padding: 15px; margin-bottom: 20px; font-size: 14px; border-radius: 6px;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Recursos Fundo de Funil: EpiBella (Ecom)</h1>
+        
+        <div class="alert">
+            <strong>Estratégia:</strong> Produto físico (Ecom). Foco em ofertas, escassez, depilador facial feminino, sem dor, remove pela raiz e pele lisa por semanas.
+        </div>
+
+        <!-- Bloco 1 -->
+        <h2>Títulos 1: Produto + [escassez] (Máx: 30)</h2>
+        <div id="titulos-1"></div>
+
+        <!-- Bloco 2 -->
+        <h2>Títulos 2: Produto posição aleatória (Máx: 30)</h2>
+        <div id="titulos-2"></div>
+
+        <!-- Bloco 3 -->
+        <h2>Títulos 3: Produto + escassez sem colchetes (Máx: 30)</h2>
+        <div id="titulos-3"></div>
+
+        <!-- Bloco 4 -->
+        <h2>Títulos 4: Sem nome do produto (Máx: 30)</h2>
+        <div id="titulos-4"></div>
+
+        <!-- Descrições -->
+        <h2>Descrições (Máx: 90)</h2>
+        <div id="descricoes"></div>
+
+        <!-- Sitelinks -->
+        <h2>Sitelinks (Frases: Máx 35, Título do grupo: Máx 25)</h2>
+        <div id="sitelinks"></div>
+
+        <!-- Frases em Destaque -->
+        <h2>Frases em Destaque / Callouts (Máx: 25)</h2>
+        <div id="callouts"></div>
+    </div>
+
+    <script>
+        const baseUrl = "https://www.optimalife.online/Epibella?utm_id={campaignid}&utm_source=google&utm_medium={adgroupid}&utm_campaign=nomeCampanha&utm_term={keyword}&utm_content={creative}&network={network}&device={device}&ftgid=ftgid_{gclid}_ftgid";
+
+        const data = {
+            t1: [
+                ["EpiBella [60% Off Today]", "EpiBella [60% Off Hoje]"],
+                ["EpiBella [Flash Sale]", "EpiBella [Oferta Relâmpago]"],
+                ["EpiBella [Limited Stock]", "EpiBella [Estoque Limitado]"],
+                ["EpiBella [Ends Tonight]", "EpiBella [Termina Hoje]"],
+                ["EpiBella [Today Only]", "EpiBella [Somente Hoje]"],
+                ["EpiBella [Huge Discount]", "EpiBella [Super Desconto]"],
+                ["EpiBella [Special Offer]", "EpiBella [Oferta Especial]"],
+                ["EpiBella [Last Chance]", "EpiBella [Última Chance]"],
+                ["EpiBella [Save 60% Now]", "EpiBella [Poupe 60% Agora]"],
+                ["EpiBella [Final Promo]", "EpiBella [Promoção Final]"]
+            ],
+            t2: [
+                ["60% Off EpiBella Today", "60% Off EpiBella Hoje"],
+                ["EpiBella Flash Sale", "EpiBella Oferta Relâmpago"],
+                ["EpiBella Limited Stock", "EpiBella Estoque Limitado"],
+                ["Save On EpiBella Now", "Economize no EpiBella"],
+                ["Get EpiBella 60% Off", "EpiBella c/ 60% Off"],
+                ["Order EpiBella Today", "Peça EpiBella Hoje"],
+                ["EpiBella Final Sale", "Liquidação EpiBella"],
+                ["Discount On EpiBella", "Desconto no EpiBella"],
+                ["EpiBella Offer Ends", "Oferta EpiBella Acabando"],
+                ["Last Chance EpiBella", "Última Chance EpiBella"]
+            ],
+            t3: [
+                ["EpiBella 60% Off Today", "EpiBella 60% Off Hoje"],
+                ["EpiBella Flash Sale", "EpiBella Oferta Relâmpago"],
+                ["EpiBella Limited Stock", "EpiBella Estoque Limitado"],
+                ["EpiBella Ends Tonight", "EpiBella Termina Hoje"],
+                ["EpiBella Special Deal", "EpiBella Oferta Especial"],
+                ["EpiBella Last Chance", "EpiBella Última Chance"],
+                ["EpiBella Save 60% Now", "EpiBella Poupe 60% Agora"],
+                ["EpiBella Today Only", "EpiBella Somente Hoje"],
+                ["EpiBella Huge Discount", "EpiBella Super Desconto"],
+                ["EpiBella Facial Epilator", "EpiBella Depilador Facial"]
+            ],
+            t4: [
+                ["60% Off Today Only", "60% Off Somente Hoje"],
+                ["Flash Sale Ends Tonight", "Oferta Relâmpago Acaba Hoje"],
+                ["Limited Stock Available", "Estoque Limitado Disponível"],
+                ["Last Chance To Save 60%", "Última Chance de Poupar 60%"],
+                ["Huge Online Discount", "Super Desconto Online"],
+                ["Women's Facial Epilator", "Depilador Facial Feminino"],
+                ["Claim Your 60% Discount", "Resgate Seu Desconto de 60%"],
+                ["Don't Miss This Offer", "Não Perca Esta Oferta"],
+                ["Stock Running Out Fast", "Estoque Acabando Rápido"],
+                ["Order Now Before It's Gone", "Peça Antes Que Acabe"],
+                ["Smooth Skin For 4 Weeks", "Pele Lisa por 4 Semanas"],
+                ["Save 60% On Your Order", "Poupe 60% No Seu Pedido"],
+                ["Pain-Free Hair Removal", "Remoção de Pelos Sem Dor"],
+                ["Exclusive 60% Off Deal", "Oferta Exclusiva 60% Off"],
+                ["Buy Now & Save Big", "Compre Agora e Economize"],
+                ["Offer Valid Today Only", "Oferta Válida Só Hoje"],
+                ["Selling Out Fast", "Esgotando Rapidamente"],
+                ["Grab Yours 60% Off", "Leve o Seu Com 60% Off"],
+                ["Massive Price Drop", "Queda Massiva de Preço"],
+                ["Gentle Facial Hair Removal", "Depilação Suave Facial"],
+                ["Secret Online Discount", "Desconto Online Secreto"],
+                ["Special Half Price Promo", "Promoção Especial de Metade"],
+                ["Sale Ends At Midnight", "Oferta Termina à Meia-Noite"]
+            ],
+            desc: [
+                ["EpiBella Flash Sale! Get 60% off today. Pain-free facial hair removal from the root.", "Oferta Relâmpago EpiBella! Ganhe 60% de desconto. Depilação facial sem dor pela raiz."],
+                ["Last chance to save 60% on EpiBella. Our biggest sale of the year ends tonight. Order!", "Última chance de poupar 60% no EpiBella. A maior oferta do ano termina hoje. Peça já!"],
+                ["Don't miss out! EpiBella is 60% off for a limited time only. Smooth skin for 4 weeks.", "Não perca! EpiBella com 60% Off por tempo limitado. Pele lisa e macia por 4 semanas."],
+                ["EpiBella special promotion. Save big while supplies last. Safe and easy facial epilator.", "Promoção especial EpiBella. Economize enquanto durar o estoque. Aparelho seguro e fácil."],
+                ["Stock is running out fast! Get your EpiBella with a huge discount before it's gone.", "O estoque está acabando rápido! Leve seu EpiBella com super desconto antes que acabe."],
+                ["Massive price drop on EpiBella. Remove facial hair from the root. Exclusive deal today.", "Queda massiva de preço no EpiBella. Remova pelos faciais pela raiz. Oferta online hoje."]
+            ],
+            sitelinks: [
+                {
+                    title: "60% Off Today",
+                    items: [
+                        ["60% Off Today Only", "60% Off Somente Hoje"],
+                        ["Claim your 60% discount.", "Resgate seu desconto de 60%."],
+                        ["Offer valid today only.", "Oferta válida apenas hoje."]
+                    ]
+                },
+                {
+                    title: "Limited Stock",
+                    items: [
+                        ["Limited Stock", "Estoque Limitado"],
+                        ["Selling out extremely fast.", "Esgotando extremamente rápido."],
+                        ["Secure yours before it's gone.", "Garanta o seu antes que acabe."]
+                    ]
+                },
+                {
+                    title: "Smooth Skin",
+                    items: [
+                        ["Smooth Skin", "Pele Lisa"],
+                        ["Smooth skin for up to 4 weeks.", "Pele macia por até 4 semanas."],
+                        ["Hair removal from the root.", "Remoção de pelos pela raiz."]
+                    ]
+                },
+                {
+                    title: "Pain-Free",
+                    items: [
+                        ["Pain-Free", "Depilação Sem Dor"],
+                        ["Gentle and painless method.", "Método suave e indolor."],
+                        ["Hair-free face easily.", "Rosto livre de pelos fácil."]
+                    ]
+                },
+                {
+                    title: "Special Discount",
+                    items: [
+                        ["Special Discount", "Desconto Especial"],
+                        ["Exclusive online savings.", "Economia online exclusiva."],
+                        ["Get yours with 60% off.", "Leve o seu com 60% de desconto."]
+                    ]
+                },
+                {
+                    title: "Secure Checkout",
+                    items: [
+                        ["Secure Checkout", "Checkout Seguro"],
+                        ["100% safe and secure payment.", "Pagamento 100% seguro."],
+                        ["Protect your data with us.", "Proteja seus dados conosco."]
+                    ]
+                },
+                {
+                    title: "30-Day Guarantee",
+                    items: [
+                        ["30-Day Guarantee", "Garantia 30 Dias"],
+                        ["Risk-free purchase.", "Compra totalmente sem risco."],
+                        ["Money back guarantee.", "Garantia de devolução."]
+                    ]
+                },
+                {
+                    title: "Fast Shipping",
+                    items: [
+                        ["Fast Shipping", "Envio Rápido"],
+                        ["We ship your order fast.", "Enviamos seu pedido rápido."],
+                        ["Get it delivered quickly.", "Receba em poucos dias."]
+                    ]
+                },
+                {
+                    title: "Buy EpiBella",
+                    items: [
+                        ["Buy EpiBella Now", "Compre EpiBella Agora"],
+                        ["Order direct and save.", "Peça direto e economize."],
+                        ["Grab the best deal today.", "Aproveite nossa melhor oferta."]
+                    ]
+                },
+                {
+                    title: "Huge Savings",
+                    items: [
+                        ["Huge Savings Today", "Super Economia Hoje"],
+                        ["Keep your hard-earned money.", "Guarde o seu dinheiro suado."],
+                        ["Best value package available.", "Melhor pacote disponível."]
+                    ]
+                }
+            ],
+            callouts: [
+                ["60% Off Today Only", "60% Off Só Hoje"],
+                ["Limited Stock", "Estoque Limitado"],
+                ["Flash Sale", "Oferta Relâmpago"],
+                ["Facial Epilator", "Depilador Facial"],
+                ["4 Weeks Smooth Skin", "Pele Lisa 4 Semanas"],
+                ["Pain-Free Epilation", "Depilação Sem Dor"],
+                ["Easy To Use", "Fácil de Usar"],
+                ["Save 60% Instantly", "Poupe 60% na Hora"],
+                ["Act Fast - Order Now", "Aja Rápido - Peça Já"],
+                ["Exclusive Promotion", "Promoção Exclusiva"],
+                ["Best Discount Deal", "Oferta Com Desconto"],
+                ["Sale Ends At Midnight", "Termina à Meia-Noite"],
+                ["Safe Design", "Design Seguro"],
+                ["Massive Price Drop", "Queda Massiva de Preço"],
+                ["Best Value Package", "Pacote Melhor Valor"]
+            ]
+        };
+
+        function renderList(targetId, items, maxChars) {
+            const container = document.getElementById(targetId);
+            items.forEach(item => {
+                const en = item[0];
+                const pt = item[1];
+                const count = en.length;
+                const isValid = count <= maxChars;
+                
+                container.innerHTML += `
+                    <div class="item">
+                        <div class="text-content">
+                            <div class="original-text">${en}</div>
+                            <div class="translation">${pt}</div>
+                        </div>
+                        <div class="controls">
+                            <span class="counter ${isValid ? 'valid' : 'invalid'}">${count}/${maxChars}</span>
+                            <button class="copy-btn" onclick="copyText(this, \`${en.replace(/'/g, "\\'")}\`)">Copy</button>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function renderSitelinks() {
+            const container = document.getElementById('sitelinks');
+            data.sitelinks.forEach((group, index) => {
+                let html = `<details><summary>Grupo ${index + 1}: ${group.title}</summary><div class="sitelink-group">`;
+                
+                // Gerador de URL exclusiva (Adiciona âncora no final)
+                const groupAnchor = encodeURIComponent(group.title.replace(/ /g, '_').toLowerCase());
+                const finalUrl = baseUrl + "#" + groupAnchor;
+                
+                html += `
+                    <div class="url-box">
+                        <span class="url-text">${finalUrl}</span>
+                        <button class="copy-btn" onclick="copyText(this, \`${finalUrl}\`)">Copy URL</button>
+                    </div>
+                `;
+                
+                group.items.forEach((item, i) => {
+                    const en = item[0];
+                    const pt = item[1];
+                    const count = en.length;
+                    const maxChars = i === 0 ? 25 : 35; // Title max 25, descriptions max 35
+                    const isValid = count <= maxChars;
+                    
+                    html += `
+                        <div class="item">
+                            <div class="text-content">
+                                <div class="original-text">${en}</div>
+                                <div class="translation">${pt}</div>
+                            </div>
+                            <div class="controls">
+                                <span class="counter ${isValid ? 'valid' : 'invalid'}">${count}/${maxChars}</span>
+                                <button class="copy-btn" onclick="copyText(this, \`${en.replace(/'/g, "\\'")}\`)">Copy</button>
+                            </div>
+                        </div>
+                    `;
+                });
+                html += `</div></details>`;
+                container.innerHTML += html;
+            });
+        }
+
+        window.copyText = function(btn, text) {
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = btn.innerText;
+                btn.innerText = '✓ Copied';
+                btn.classList.add('copied');
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.classList.remove('copied');
+                }, 1500);
+            });
+        };
+
+        // Render all sections
+        renderList('titulos-1', data.t1, 30);
+        renderList('titulos-2', data.t2, 30);
+        renderList('titulos-3', data.t3, 30);
+        renderList('titulos-4', data.t4, 30);
+        renderList('descricoes', data.desc, 90);
+        renderSitelinks();
+        renderList('callouts', data.callouts, 25);
+    </script>
+</body>
+</html>
