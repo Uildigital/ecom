@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campanha Google Ads - Akemi Coffee Boost</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f8fafc; color: #1e293b; padding: 20px; line-height: 1.5; }
+        .container { max-width: 900px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); }
+        h1 { font-size: 24px; font-weight: 700; color: #0f172a; margin-bottom: 20px; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; }
+        h2 { font-size: 18px; font-weight: 600; color: #334155; margin-top: 30px; margin-bottom: 15px; background: #f1f5f9; padding: 10px; border-radius: 6px; }
+        .item { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #f1f5f9; }
+        .item:last-child { border-bottom: none; }
+        .text-content { flex: 1; padding-right: 20px; }
+        .original-text { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 14px; font-weight: 600; color: #0f172a; }
+        .translation { font-size: 12px; color: #64748b; margin-top: 4px; }
+        .controls { display: flex; align-items: center; gap: 12px; }
+        .counter { font-size: 12px; font-weight: 600; padding: 4px 8px; border-radius: 4px; }
+        .counter.valid { background: #dcfce7; color: #166534; }
+        .counter.invalid { background: #fee2e2; color: #991b1b; }
+        .copy-btn { background: #ffffff; border: 1px solid #cbd5e1; color: #475569; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 500; cursor: pointer; transition: all 0.2s; white-space: nowrap; }
+        .copy-btn:hover { background: #f8fafc; border-color: #94a3b8; color: #0f172a; }
+        .copy-btn.copied { background: #10b981; border-color: #10b981; color: white; }
+        details { background: #f8fafc; padding: 10px 15px; border-radius: 8px; margin-bottom: 10px; border: 1px solid #e2e8f0; }
+        summary { font-weight: 600; cursor: pointer; color: #334155; }
+        .sitelink-group { margin-top: 10px; padding-left: 10px; border-left: 2px solid #cbd5e1; }
+        .url-box { margin-bottom: 15px; padding: 12px; background: #e0f2fe; border-radius: 6px; font-size: 11px; display: flex; justify-content: space-between; align-items: center; gap: 15px; }
+        .url-text { font-family: monospace; color: #0369a1; word-break: break-all; }
+        .alert { background: #fcf3cf; border-left: 4px solid #f1c40f; padding: 15px; margin-bottom: 20px; font-size: 14px; border-radius: 6px;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Recursos Fundo de Funil: Akemi Coffee Boost</h1>
+        
+        <div class="alert">
+            <strong>Estratégia (Ecom - Venda Direta):</strong> Foco extremo em <strong>gatilhos comerciais</strong>: 50% de Desconto, Escassez (Low Stock), Garantia de 30 Dias. Textos 100% White Hat que omitem claims de emagrecimento, passando liso nas políticas do Google Ads.
+        </div>
+
+        <p style="font-size: 14px; color: #64748b; margin-bottom: 30px;">
+            Benefícios Comerciais: 50% OFF, 30 Dias de Garantia, Promoção Relâmpago, Site Oficial, Estoque Baixo.
+        </p>
+
+        <!-- Bloco 1 -->
+        <h2>Títulos 1: Produto + [gatilho comercial] (Máx: 30)</h2>
+        <div id="titulos-1"></div>
+
+        <!-- Bloco 2 -->
+        <h2>Títulos 2: Produto posição aleatória (Máx: 30)</h2>
+        <div id="titulos-2"></div>
+
+        <!-- Bloco 3 -->
+        <h2>Títulos 3: Produto + gatilho sem colchetes (Máx: 30)</h2>
+        <div id="titulos-3"></div>
+
+        <!-- Bloco 4 -->
+        <h2>Títulos 4: Sem nome do produto - Foco 100% Venda (Máx: 30)</h2>
+        <div id="titulos-4"></div>
+
+        <!-- Descrições -->
+        <h2>Descrições Comerciais (Máx: 90)</h2>
+        <div id="descricoes"></div>
+
+        <!-- Sitelinks -->
+        <h2>Sitelinks Comerciais (Frases: Máx 35, Título do grupo: Máx 25)</h2>
+        <div id="sitelinks"></div>
+
+        <!-- Frases em Destaque -->
+        <h2>Frases em Destaque / Callouts (Máx: 25)</h2>
+        <div id="callouts"></div>
+    </div>
+
+    <script>
+        const baseUrl = "https://www.optimalife.online/Akemi_Coffee_Boost?utm_id={campaignid}&utm_source=google&utm_medium={adgroupid}&utm_campaign=nomeCampanha&utm_term={keyword}&utm_content={creative}&network={network}&device={device}&ftgid=ftgid_{gclid}_ftgid";
+
+        const data = {
+            t1: [
+                ["Akemi Coffee Boost [50% Off]", "Akemi Coffee Boost [50% OFF]"],
+                ["Akemi Coffee [Official Site]", "Akemi Coffee [Site Oficial]"],
+                ["Akemi Coffee Boost [Sale]", "Akemi Coffee Boost [Promoção]"],
+                ["Akemi Coffee [30-Day Policy]", "Akemi Coffee [Garantia 30 Dias]"],
+                ["Akemi Coffee Boost [Buy Now]", "Akemi Coffee Boost [Compre Agora]"],
+                ["Akemi Coffee [Huge Discount]", "Akemi Coffee [Desconto Enorme]"],
+                ["Akemi Coffee Boost [Save 50%]", "Akemi Coffee Boost [Economize 50%]"],
+                ["Akemi Coffee [Final Hours]", "Akemi Coffee [Últimas Horas]"],
+                ["Akemi Coffee Boost [Try It]", "Akemi Coffee Boost [Experimente]"],
+                ["Akemi Coffee [Low Stock]", "Akemi Coffee [Estoque Baixo]"]
+            ],
+            t2: [
+                ["Order Akemi Coffee Boost Now", "Peça Akemi Coffee Boost Agora"],
+                ["Save 50% On Akemi Coffee", "Economize 50% no Akemi Coffee"],
+                ["Try Akemi Coffee Boost Today", "Experimente Akemi Coffee Boost Hoje"],
+                ["Akemi Coffee: Claim 50% Off", "Akemi Coffee: Resgate 50% OFF"],
+                ["Official Akemi Coffee Boost", "Akemi Coffee Boost Oficial"],
+                ["Buy Akemi Coffee Boost Online", "Compre Akemi Coffee Boost Online"],
+                ["Akemi Coffee Boost Flash Sale", "Promoção Relâmpago Akemi Coffee Boost"],
+                ["Get Your Akemi Coffee Boost", "Garanta Seu Akemi Coffee Boost"],
+                ["Akemi Coffee: 30-Day Guarantee", "Akemi Coffee: Garantia de 30 Dias"],
+                ["Best Price For Akemi Coffee", "Melhor Preço Para Akemi Coffee"]
+            ],
+            t3: [
+                ["Akemi Coffee Boost Official", "Akemi Coffee Boost Oficial"],
+                ["Akemi Coffee Boost 50% Off", "Akemi Coffee Boost 50% OFF"],
+                ["Akemi Coffee Boost Save Big", "Akemi Coffee Boost Economize Muito"],
+                ["Akemi Coffee Boost Limited", "Akemi Coffee Boost Limitado"],
+                ["Akemi Coffee Boost Buy Now", "Akemi Coffee Boost Compre Agora"],
+                ["Akemi Coffee Boost Huge Deal", "Akemi Coffee Boost Grande Oferta"],
+                ["Akemi Coffee Boost Guaranteed", "Akemi Coffee Boost Garantido"],
+                ["Akemi Coffee Boost Best Price", "Akemi Coffee Boost Melhor Preço"],
+                ["Akemi Coffee Boost Special", "Akemi Coffee Boost Especial"],
+                ["Akemi Coffee Boost Order Now", "Akemi Coffee Boost Peça Agora"]
+            ],
+            t4: [
+                ["Claim Your 50% Discount Now", "Resgate Seu Desconto de 50% Agora"],
+                ["Hurry, Limited Stock Left", "Corra, Estoque Limitado Restante"],
+                ["Massive Flash Sale Ending", "Enorme Promoção Relâmpago Acabando"],
+                ["Lock In Your 50% Off Today", "Garanta Seu 50% OFF Hoje"],
+                ["100% Risk-Free Guarantee", "Garantia 100% Sem Risco"],
+                ["Final Hours: Huge Discount", "Últimas Horas: Desconto Enorme"],
+                ["Order Securely Online Now", "Faça o Pedido Seguro Online Agora"],
+                ["Exclusive Online Offer Today", "Oferta Exclusiva Online Hoje"],
+                ["Save Instantly On Your Order", "Economize Instantaneamente no Pedido"],
+                ["Special Price While They Last", "Preço Especial Enquanto Durarem"]
+            ],
+            desc: [
+                ["Huge savings today! Get 50% off your order. Hurry, limited stock available right now.", "Grande economia hoje! Ganhe 50% OFF no seu pedido. Corra, estoque limitado agora mesmo."],
+                ["Don't miss out on our biggest sale. Try it 100% risk-free for 30 days. Order securely online.", "Não perca nossa maior promoção. Experimente 100% sem risco por 30 dias. Peça com segurança online."],
+                ["Massive savings! Order from the official site and lock in your 50% discount today.", "Economia enorme! Peça do site oficial e garanta seu desconto de 50% hoje."],
+                ["Special pricing available now. Secure your supply with an exclusive discount before it's gone.", "Preços especiais disponíveis agora. Garanta seu suprimento com desconto exclusivo antes que acabe."],
+                ["Time is running out! Lock in your massive 50% discount. Act fast while supplies last.", "O tempo está acabando! Garanta seu desconto enorme de 50%. Aja rápido enquanto durar o estoque."],
+                ["100% Satisfaction Guarantee. Order today and take advantage of our exclusive flash sale.", "Garantia 100% de Satisfação. Peça hoje e aproveite nossa promoção relâmpago exclusiva."]
+            ],
+            sitelinks: [
+                {
+                    title: ["50% Off Today", "50% de Desconto Hoje"],
+                    lines: [
+                        ["Lock in the best price", "Garanta o melhor preço"],
+                        ["Claim your massive discount", "Resgate seu desconto enorme"]
+                    ]
+                },
+                {
+                    title: ["30-Day Guarantee", "Garantia de 30 Dias"],
+                    lines: [
+                        ["Try it 100% risk-free", "Experimente 100% sem risco"],
+                        ["Your satisfaction assured", "Sua satisfação garantida"]
+                    ]
+                },
+                {
+                    title: ["Official Website", "Site Oficial"],
+                    lines: [
+                        ["Order directly from us", "Peça diretamente de nós"],
+                        ["100% authentic formula", "Fórmula 100% autêntica"]
+                    ]
+                },
+                {
+                    title: ["Secure Order", "Pedido Seguro"],
+                    lines: [
+                        ["100% secure checkout", "Checkout 100% seguro"],
+                        ["Your privacy is protected", "Sua privacidade é protegida"]
+                    ]
+                },
+                {
+                    title: ["Limited Time Offer", "Oferta Tempo Limitado"],
+                    lines: [
+                        ["Prices going up soon", "Preços subirão em breve"],
+                        ["Don't miss this huge sale", "Não perca essa promoção enorme"]
+                    ]
+                },
+                {
+                    title: ["Huge Savings Today", "Grande Economia Hoje"],
+                    lines: [
+                        ["Claim your massive discount", "Resgate seu desconto enorme"],
+                        ["Act fast while supplies last", "Aja rápido enquanto durar o estoque"]
+                    ]
+                },
+                {
+                    title: ["Fast Shipping", "Envio Rápido"],
+                    lines: [
+                        ["Quick and reliable delivery", "Entrega rápida e confiável"],
+                        ["Ships straight to your door", "Envia direto para sua porta"]
+                    ]
+                },
+                {
+                    title: ["100% Risk-Free", "100% Sem Risco"],
+                    lines: [
+                        ["Money back guarantee", "Garantia de devolução do dinheiro"],
+                        ["Order with confidence", "Peça com confiança"]
+                    ]
+                }
+            ],
+            callouts: [
+                ["50% Off Today", "50% OFF Hoje"],
+                ["Limited Stock", "Estoque Limitado"],
+                ["30-Day Guarantee", "Garantia de 30 Dias"],
+                ["100% Risk-Free", "100% Sem Risco"],
+                ["Official Website", "Site Oficial"],
+                ["Huge Savings", "Grande Economia"],
+                ["Final Hours Sale", "Promoção Últimas Horas"],
+                ["Order Online Now", "Peça Online Agora"],
+                ["Special Pricing", "Preço Especial"],
+                ["Secure Checkout", "Checkout Seguro"]
+            ]
+        };
+
+        function createItem(en, pt, limit) {
+            const count = en.length;
+            const valid = count <= limit;
+            
+            return `
+                <div class="item">
+                    <div class="text-content">
+                        <div class="original-text">${en}</div>
+                        <div class="translation">${pt}</div>
+                    </div>
+                    <div class="controls">
+                        <span class="counter ${valid ? 'valid' : 'invalid'}">${count}/${limit}</span>
+                        <button class="copy-btn" onclick="copyText(this, '${en.replace(/'/g, "\\'")}')">Copiar</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        async function copyText(btn, text) {
+            try {
+                await navigator.clipboard.writeText(text);
+                const originalText = btn.innerText;
+                btn.innerText = 'Copiado!';
+                btn.classList.add('copied');
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.classList.remove('copied');
+                }, 2000);
+            } catch (err) {
+                console.error('Falha ao copiar', err);
+            }
+        }
+
+        // URL Base Element
+        const container = document.querySelector('.container');
+        const urlHtml = `
+            <h2>URL Base (Google Ads)</h2>
+            <div class="url-box">
+                <span class="url-text">${baseUrl}</span>
+                <button class="copy-btn" onclick="copyText(this, '${baseUrl}')">Copiar URL</button>
+            </div>
+        `;
+        document.querySelector('h1').insertAdjacentHTML('afterend', urlHtml);
+
+        // Renderizar Títulos
+        document.getElementById('titulos-1').innerHTML = data.t1.map(t => createItem(t[0], t[1], 30)).join('');
+        document.getElementById('titulos-2').innerHTML = data.t2.map(t => createItem(t[0], t[1], 30)).join('');
+        document.getElementById('titulos-3').innerHTML = data.t3.map(t => createItem(t[0], t[1], 30)).join('');
+        document.getElementById('titulos-4').innerHTML = data.t4.map(t => createItem(t[0], t[1], 30)).join('');
+
+        // Renderizar Descrições
+        document.getElementById('descricoes').innerHTML = data.desc.map(d => createItem(d[0], d[1], 90)).join('');
+
+        // Renderizar Sitelinks
+        document.getElementById('sitelinks').innerHTML = data.sitelinks.map((s, idx) => {
+            const sitelinkUrl = baseUrl + "&sitelink=" + (idx + 1);
+            return `
+            <details>
+                <summary>${s.title[0]} (${s.title[0].length}/25) - ${s.title[1]}</summary>
+                <div class="sitelink-group">
+                    <div class="url-box" style="margin-top: 10px; margin-bottom: 15px;">
+                        <span class="url-text">${sitelinkUrl}</span>
+                        <button class="copy-btn" onclick="copyText(this, '${sitelinkUrl}')">Copiar Link</button>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <strong>Título do Sitelink:</strong>
+                        ${createItem(s.title[0], s.title[1], 25)}
+                    </div>
+                    <strong>Linha de Descrição 1:</strong>
+                    ${createItem(s.lines[0][0], s.lines[0][1], 35)}
+                    <strong>Linha de Descrição 2:</strong>
+                    ${createItem(s.lines[1][0], s.lines[1][1], 35)}
+                </div>
+            </details>
+            `;
+        }).join('');
+
+        // Renderizar Callouts
+        document.getElementById('callouts').innerHTML = data.callouts.map(c => createItem(c[0], c[1], 25)).join('');
+    </script>
+</body>
+</html>
